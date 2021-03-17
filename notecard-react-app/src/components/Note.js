@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import '../css/Note.css';
+import PropTypes from 'prop-types';
 
 class Note extends Component {
   constructor() {
@@ -11,17 +12,24 @@ class Note extends Component {
       <div className="col-sm-6">
         <div className="card card-view">
           <div className="card-body">
-            <h5 className="card-title">Lorem Ipsum Title</h5>
-            <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </p>
-            <button className="btn btn-info">Edit in blue</button>
-            <button className="btn btn-danger">Delete in red</button>
+            <h5 className="card-title">{this.props.title}</h5>
+            <p>{this.props.body}</p>
+            <button className="btn btn-info">Edit</button>
+            <button className="btn btn-danger">Delete</button>
           </div>
         </div>
       </div>
     );
   }
 }
+
+Note.defaultProps = {
+  title: "A cool title",
+  body: "A cool body",
+};
+
+Note.propTypes = {
+  title: PropTypes.string	
+};
 
 export default Note;
